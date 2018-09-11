@@ -1,4 +1,4 @@
-let store = { drivers: [], trips: [], passengers: [] };
+let store = { drivers: [], passengers: [], trips: [] };
 
 let driverId = 0;
 
@@ -61,25 +61,12 @@ class Driver {
   class Trip {
     constructor(driver, passenger) {
         this.id = ++tripId;
-        if (driver) {
-            this.driverId = driver.id;
-        }
-        if (passenger) {
-            this.passengerId = passenger.id;
-        }
+        this.driverId = driver.id;
+        this.passengerId = passenger.id;
 
         store.trips.push(this);
 
         };
-
-      }
-      setDriver(driver){
-        this.driverId = driver.id
-      }
-      }
-      setPassenger(passenger){
-        this.passengerId = passenger.id
-      }
 
         driver() {
           return store.drivers.find(
