@@ -59,10 +59,10 @@ class Driver {
   let tripId = 0;
 
   class Trip {
-    constructor(id, driverId, passengerId) {
+    constructor(driver, passenger) {
         this.id = ++tripId;
-        this.driverId = driverId;
-        this.passengerId = passengerId;
+        this.driverID = driver.id;
+        this.passengerId = passenger.id;
 
         store.trips.push(this);
 
@@ -77,10 +77,10 @@ class Driver {
         }
 
         passenger() {
-            return store.passengers.find(
-              function(passenger) {
-                    return passenger.id === this.passengerId;
-                }.bind(this)
-            );
+          return store.passengers.find(
+            function(passenger) {
+                return passenger.id === this.passengerId;
+            }.bind(this)
+          );
         }
     }
